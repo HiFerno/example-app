@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/todos', function () {
+    return view('app');
+});
+
 use App\Http\Controllers\PrimerController;
 Route::get('/mi-primer-controller', [PrimerController::class, 'index']);
 

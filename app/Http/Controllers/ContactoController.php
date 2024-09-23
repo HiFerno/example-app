@@ -14,6 +14,7 @@ class ContactoController extends Controller
             'email' => 'required|email:rfc,dns',
             'mensaje' => 'required',
         ]);
+        
 
         //enviar mensaje
 
