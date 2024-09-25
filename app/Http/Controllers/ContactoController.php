@@ -1,27 +1,19 @@
 <?php
+
 namespace App\Http\Controllers;
+
+use App\Models\Contacto;
 use Illuminate\Http\Request;
+
 class ContactoController extends Controller
 {
+    // Método para mostrar la lista de contactos
     public function index()
     {
-        return view('mis-views.contacto');
-    }
-    public function send(Request $request)
-    {
-        $request->validate([
-            'nombre' => 'required|max:255',
-            'email' => 'required|email:rfc,dns',
-            'mensaje' => 'required',
-        ]);
-        
+        // Extraer los datos de la tabla contactos
+        $contactos = Contacto::all();
 
-        //enviar mensaje
-
-        return redirect(route('contactado'), 302);
-
-    }
-    public function contacted(){
-        return view('mis-views.contactado');
+        // Retornar la vista y pasar los datos
+        return view('contactos.index', compact('contactos'));
     }
 }

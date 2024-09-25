@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/todos', function () {
-    return view('app');
-});
+
+use App\Http\Controllers\ContactoController;
+Route::get('/contactos', [ContactoController::class, 'index']);
 
 use App\Http\Controllers\PrimerController;
 Route::get('/mi-primer-controller', [PrimerController::class, 'index']);
@@ -28,12 +28,8 @@ Route::get('/tienda-pro', function () {
     return view('informacion');
 });
 
-/*-------------------------------------------------------------------------------------------------------*/
 
-use App\Http\Controllers\ContactoController;
-Route::get('/contacto', [ContactoController::class, 'index']);
-Route::post('/contacto', [ContactoController::class, 'send']);
-Route::get('/contactado', [ContactoController::class, 'contacted'])->name('contactado');
+
 
 
 
